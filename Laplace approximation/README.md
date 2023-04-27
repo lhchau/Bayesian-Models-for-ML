@@ -40,6 +40,6 @@
 
 ### Prediction
 
-- $p(y^{*}|x^{*}, D) = \int p(y^{*}|x^{*}, \theta)p(\theta|D)d\theta$
+- $p(\hat{y}|\hat{x}, D) = \int p(\hat{y}|\hat{x}, \theta)p(\theta|D)d\theta$
 
-- For each input we make total S predictions: $\frac{1}{S}\Sigma^S_{s=1}p(y^{*}|x^{*}, \theta_S)$
+- For each input we make total S predictions: $\frac{1}{S}\Sigma^S_{s=1}p(\hat{y} |\hat{x}, \theta_S)$
