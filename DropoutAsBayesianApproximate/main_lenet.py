@@ -14,10 +14,6 @@ trainset = datasets.MNIST(root='data/', train=True, download=True, transform=tra
 testset = datasets.MNIST(root='data/', train=False, transform=transform)
 
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=64, shuffle=True, num_workers=2)
-dataiter = iter(trainloader)
-images, labels = dataiter.next()
-
-hidden_layers = [800, 800]
 
 # Define networks
 lenet1 = [LeNetClassifier(droprate=0, max_epoch=1500),
