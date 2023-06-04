@@ -24,7 +24,7 @@ class LeNet(nn.Module):
             - out
         """
         self.model = nn.Sequential(OrderedDict([
-            ('conv1', nn.Conv2d(in_channels=1, out_channels=20, kernel_size=5, padding=2)),
+            ('conv1', nn.Conv2d(in_channels=3, out_channels=20, kernel_size=5, padding=2)),
             ('dropout1', nn.Dropout(p=droprate)),
             ('maxpool1', nn.MaxPool2d(kernel_size=2, stride=2)),
             
@@ -32,13 +32,13 @@ class LeNet(nn.Module):
             ('dropout2', nn.Dropout(p=droprate)),
             ('maxpool2', nn.MaxPool2d(kernel_size=2, stride=2)),
             
-            ('flatten', Flatten()),
+            ('flatten', nn.Flatten()),
             ('dense3', nn.Linear(in_features=50*7*7, out_features=500)),
             ('relu3', nn.ReLU()),
-            ('dropout3', nn.Dropout(p=droprate))
+            ('dropout3', nn.Dropout(p=droprate)),
             
             ('final', nn.Linear(in_features=500, out_features=10))
         ]))
         
-        def forward(self, x):
-            return self.model(x)
+    def forward(self, x):
+        return self.model(x)
